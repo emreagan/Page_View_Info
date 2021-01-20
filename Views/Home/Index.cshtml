@@ -1,0 +1,61 @@
+﻿@model PageViewInfo.Models.PageViewInfoModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <strong>Toplam Ziyaretçi Sayısı:</strong> @Model.TotalView
+    </div>
+
+    <div class="col-md-12">
+        <strong>En Çok Görüntülenen Ülke:</strong> @Model.MostViewedCountry
+</div>
+
+</div>
+<br />
+<br />
+<div class="row">
+    <table  class="table-bordered">
+        <thead style="background-color:black;color:white;">
+            <tr>
+                <th>Sayfa</th>
+                <th>Görüntülenme Sayısı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Model.CountryViewList)
+            {
+                <tr style="font-size: 20px">
+                    <td>@row.Label</td>
+                    <td style="text-align:center">@row.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="row">
+
+    </div>
+    <table class="table-bordered">
+        <thead style="background-color:black;color:white;">
+            <tr>
+                <th>Tarih</th>
+                <th>Ziyaretçi Sayısı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in Model.DateViewList)
+            {
+                <tr style="font-size: 20px">
+                    <td>@row.Date.ToString("dd/MM/yyyy")</td>
+                    <td style="text-align:center">@row.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
